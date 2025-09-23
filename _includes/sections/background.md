@@ -24,27 +24,34 @@ aligned RNNs or convolution. In the following sections, we will describe the Tra
 self-attention and discuss its advantages over models such as [17, 18] and [9].
 
 
-<div class="card pad">
-  <!-- 三列网格；想更宽就把 cols-3 改成 cols-4，或把 --min 调大/调小 -->
-  <div class="fig-grid cols-3">
-    <figure class="fig fig--input">
-      <img src="{{ '/assets/images/background/bg-01.jpg' | relative_url }}" alt="输入/示意图 1">
-      <figcaption>输入/示意图 1</figcaption>
-    </figure>
 
+
+
+
+<!-- _includes/sections/background.md 或 background.md 中对应图片区域 -->
+<div class="card pad tight">
+  <h3>相关背景图</h3>
+  <p class="text-2">这里写一句简短说明，可删。</p>
+
+  <!-- 跟 Approach 一样的网格 + 卡片 -->
+  <div class="fig-grid square tight s-220 compact">
     <figure class="fig">
-      <img src="{{ '/assets/images/background/bg-02.jpg' | relative_url }}" alt="相关工作 A">
-      <figcaption>相关工作 A</figcaption>
+      <img src="{{ '/assets/images/background/bg-01.jpg' | relative_url }}" alt="背景图 1">
+      <figcaption>说明文字 1</figcaption>
     </figure>
 
-    <figure class="fig">
-      <img src="{{ '/assets/images/background/bg-03.jpg' | relative_url }}" alt="相关工作 B">
-      <figcaption>相关工作 B</figcaption>
+  <figure class="fig">
+      <img src="{{ '/assets/images/background/bg-02.jpg' | relative_url }}" alt="背景图 2">
+      <figcaption>说明文字 2</figcaption>
     </figure>
 
-    <!-- 继续复制 figure 块即可添加更多图 -->
+  <figure class="fig">
+      <img src="{{ '/assets/images/background/bg-03.jpg' | relative_url }}" alt="背景图 3">
+      <figcaption>说明文字 3</figcaption>
+    </figure>
   </div>
 </div>
+
 
 
 

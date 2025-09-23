@@ -23,7 +23,7 @@
 
 <nav class="nav actions">
   <a class="pill demo" href="https://your-demo.example.com" target="_blank" rel="noopener">Demo</a>
-  <a class="pill"      href="/assets/paper.pdf" target="_blank" rel="noopener">PDF</a>
+  <a class="pill"      href="/assets/papers/paper.pdf" target="_blank" rel="noopener">PDF</a>
   <a class="pill"      href="https://github.com/ddmeer/gemholm" target="_blank" rel="noopener">Code</a>
   <a class="pill"      href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">arXiv</a>
 </nav>
@@ -139,25 +139,27 @@ entirely on self-attention to compute representations of its input and output wi
 aligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate
 self-attention and discuss its advantages over models such as [17, 18] and [9].</p>
 
-<div class="card pad">
-  <!-- 三列网格；想更宽就把 cols-3 改成 cols-4，或把 --min 调大/调小 -->
-  <div class="fig-grid cols-3">
-    <figure class="fig fig--input">
-      <img src="/assets/images/background/bg-01.jpg" alt="输入/示意图 1" />
-      <figcaption>输入/示意图 1</figcaption>
-    </figure>
+<!-- _includes/sections/background.md 或 background.md 中对应图片区域 -->
+<div class="card pad tight">
+  <h3>相关背景图</h3>
+  <p class="text-2">这里写一句简短说明，可删。</p>
 
+  <!-- 跟 Approach 一样的网格 + 卡片 -->
+  <div class="fig-grid square tight s-220 compact">
     <figure class="fig">
-      <img src="/assets/images/background/bg-02.jpg" alt="相关工作 A" />
-      <figcaption>相关工作 A</figcaption>
+      <img src="/assets/images/background/bg-01.jpg" alt="背景图 1" />
+      <figcaption>说明文字 1</figcaption>
     </figure>
 
-    <figure class="fig">
-      <img src="/assets/images/background/bg-03.jpg" alt="相关工作 B" />
-      <figcaption>相关工作 B</figcaption>
+  <figure class="fig">
+      <img src="/assets/images/background/bg-02.jpg" alt="背景图 2" />
+      <figcaption>说明文字 2</figcaption>
     </figure>
 
-    <!-- 继续复制 figure 块即可添加更多图 -->
+  <figure class="fig">
+      <img src="/assets/images/background/bg-03.jpg" alt="背景图 3" />
+      <figcaption>说明文字 3</figcaption>
+    </figure>
   </div>
 </div>
 
@@ -191,56 +193,31 @@ self-attention and discuss its advantages over models such as [17, 18] and [9].<
     <h2>Approach</h2>
     <p class="subtle">概述方法框架、关键模块与创新点。</p>
     
-    <h3 id="方法简介">方法简介</h3>
+    <!-- _includes/sections/approach.md（或 approach.md） -->
+
+<h3 id="方法简介">方法简介</h3>
 <p>整体流程如图，包含 A、B、C 三个模块……（这里写你的方法文字）</p>
 
-<div class="card edge">
-  <!-- square=正方形，full=铺满整行，s-180=更紧凑；想更密就换 s-160，想稍疏一点用 s-200 -->
-  <div class="fig-grid square full hovercap s-180">
+<div class="card pad tight">
+  <!-- 这句是和 background 一样的简短说明，可删 -->
+  <p class="text-2">这里写一句简短说明，可删。</p>
 
-
-
-
-<figure class="fig">
-  <a href="/assets/images/approach/app-01.jpg" data-lightbox="approach">
-    <img src="/assets/images/approach/app-01.jpg" alt="" />
-  </a>
-  <figcaption>说明文字</figcaption>
-</figure>
-
-<figure class="fig">
-  <a href="/assets/images/approach/app-02.jpg" data-lightbox="approach">
-    <img src="/assets/images/approach/app-02.jpg" alt="" />
-  </a>
-  <figcaption>说明文字</figcaption>
-</figure>
-
-
-<figure class="fig">
-  <a href="/assets/images/approach/app-03.jpg" data-lightbox="approach">
-    <img src="/assets/images/approach/app-03.jpg" alt="" />
-  </a>
-  <figcaption>说明文字</figcaption>
-</figure>
-
-
-
-    <!-- 继续复制 figure 即可添加更多图 -->
-    <!--
+  <!-- 与 background 相同的正方形紧凑网格：square + s-220 + compact -->
+  <div class="fig-grid square tight s-220 compact">
     <figure class="fig">
-      <img src="/assets/images/approach/app-04.jpg" alt="">
+      <img src="/assets/images/approach/app-01.jpg" alt="Input / 示例图 1" />
       <figcaption>说明文字</figcaption>
     </figure>
-    <figure class="fig">
-      <img src="/assets/images/approach/app-05.jpg" alt="">
-      <figcaption>说明文字</figcaption>
-    </figure>
-    <figure class="fig">
-      <img src="/assets/images/approach/app-06.jpg" alt="">
-      <figcaption>说明文字</figcaption>
-    </figure>
-    -->
 
+    <figure class="fig">
+      <img src="/assets/images/approach/app-02.jpg" alt="示例图 2" />
+      <figcaption>说明文字</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <img src="/assets/images/approach/app-03.jpg" alt="示例图 3" />
+      <figcaption>说明文字</figcaption>
+    </figure>
   </div>
 </div>
 
@@ -309,9 +286,9 @@ self-attention and discuss its advantages over models such as [17, 18] and [9].<
 
   <footer class="site-footer">
     <div class="container footer-inner">
-      <span>© 2025 Your Name</span>
+      <span>© 2025 DDM</span>
       <span class="sep">•</span>
-      <a href="https://github.com/your-username/gemholm" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/ddmeer/gemholm" target="_blank" rel="noopener">GitHub</a>
     </div>
   </footer>
 
