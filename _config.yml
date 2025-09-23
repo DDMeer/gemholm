@@ -1,0 +1,9 @@
+title: "你的论文标题"
+description: "单页项目展示"
+url: ""
+baseurl: ""
+permalink: pretty
+markdown: kramdown
+theme: null
+plugins: []
+exclude: [README.md, node_modules, vendor]
