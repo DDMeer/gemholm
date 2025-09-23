@@ -5,41 +5,73 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>你的论文标题</title>
   <meta name="description" content="单页项目展示">
-  <link rel="stylesheet" href="/gemholm/assets/css/styles.css">
+  <link rel="stylesheet" href="/assets/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">你的论文标题</div>
       <!-- 右上角四个胶囊按钮 -->
-      <nav class="nav actions">
+
+<!--       <nav class="nav actions">
         <a class="pill demo" href="https://your-demo.example.com" target="_blank" rel="noopener">Demo</a>
-        <a class="pill" href="/gemholm/assets/paper.pdf" target="_blank" rel="noopener">PDF</a>
+        <a class="pill" href="/assets/paper.pdf" target="_blank" rel="noopener">PDF</a>
         <a class="pill" href="https://github.com/your-username/gemholm" target="_blank" rel="noopener">Code</a>
         <a class="pill" href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">arXiv</a>
-      </nav>
+      </nav> -->
+
+
+<nav class="nav actions">
+  <a class="pill demo" href="https://your-demo.example.com" target="_blank" rel="noopener">Demo</a>
+  <a class="pill"      href="/assets/paper.pdf" target="_blank" rel="noopener">PDF</a>
+  <a class="pill"      href="https://github.com/ddmeer/gemholm" target="_blank" rel="noopener">Code</a>
+  <a class="pill"      href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">arXiv</a>
+</nav>
+
+
+
+
     </div>
   </header>
 
   <main class="site-main">
-    <!-- 1) Hero：轮播大图（自动播放，可触摸滑动） -->
+    <!-- 1) Hero：轮播（读取 _data/hero.yml） -->
 <section class="section hero">
   <div class="container">
     <h1>你的论文标题</h1>
     <p class="authors">作者A<sup>1</sup>，作者B<sup>2</sup>，作者C<sup>1</sup></p>
     <p class="affiliations"><sup>1</sup>单位一　<sup>2</sup>单位二</p>
 
-    <div class="hero-slider card" data-autoplay="true" data-interval="3500" aria-label="Hero image slider">
+    
+    <div
+      class="hero-slider card"
+      data-autoplay="true"
+      data-interval="3500"
+      aria-label="Hero image slider"
+    >
       <div class="slides" aria-live="polite">
+        
         <div class="slide is-active">
-          <img src="/gemholm/assets/images/hero1.jpg" alt="示例图 1">
+          <img src="/assets/images/hero/hero1.jpg" alt="主图 11">
+          
+          <div class="caption"></div>
+          
         </div>
+        
         <div class="slide">
-          <img src="/gemholm/assets/images/hero2.jpg" alt="示例图 2">
+          <img src="/assets/images/hero/hero2.jpg" alt="主图 22">
+          
+          <div class="caption"></div>
+          
         </div>
+        
         <div class="slide">
-          <img src="/gemholm/assets/images/hero3.jpg" alt="示例图 3">
+          <img src="/assets/images/hero/hero3.jpg" alt="主图 33">
+          
+          <div class="caption"></div>
+          
         </div>
+        
       </div>
       <button class="nav prev" aria-label="Previous">‹</button>
       <button class="nav next" aria-label="Next">›</button>
@@ -48,73 +80,232 @@
   </div>
 </section>
 
-<!-- 2) Abstract：浅灰背景、居中宽文段 -->
+<!-- 2) Abstract：MD → HTML -->
 <section id="abstract" class="section gray">
   <div class="container">
     <h2 class="h2-center">Abstract</h2>
     <div class="lead">
-      <p>
-        这里写摘要。建议 1–2 个段落，简述问题、方法与结论。长度参考示例页，保证行宽舒适、易读。
-      </p>
+      
+      <p>我们提出……（在这里写摘要，建议 1–2 段）<br />
+可用<strong>粗体</strong>、<em>斜体</em>、以及行内代码 <code class="language-plaintext highlighter-rouge">x = y</code>。<br />
+公式建议直接贴图（为保证跨端渲染一致性）。</p>
+
+<p>The dominant sequence transduction models are based on complex recurrent or
+convolutional neural networks that include an encoder and a decoder. The best
+performing models also connect the encoder and decoder through an attention
+mechanism. We propose a new simple network architecture, the Transformer,
+based solely on attention mechanisms, dispensing with recurrence and convolutions
+entirely. Experiments on two machine translation tasks show these models to
+be superior in quality while being more parallelizable and requiring significantly
+less time to train. Our model achieves 28.4 BLEU on the WMT 2014 Englishto-German translation task, improving over the existing best results, including
+ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task,
+our model establishes a new single-model state-of-the-art BLEU score of 41.8 after
+training for 3.5 days on eight GPUs, a small fraction of the training costs of the
+best models from the literature. We show that the Transformer generalizes well to
+other tasks by applying it successfully to English constituency parsing both with
+large and limited training data.</p>
+
     </div>
   </div>
 </section>
 
-<!-- 3) Background -->
+<!-- 3) Background：MD → HTML -->
 <section id="background" class="section">
-  <div class="container narrow">
+  <div class="container">
     <h2>Background</h2>
     <p class="subtle">简述研究背景、相关工作或挑战点。</p>
-    <p>
-      在此补充背景说明，可插入一张参考图（可选）。
-    </p>
-    <!-- <div class="card" style="margin-top:12px"><img src="/gemholm/assets/images/bg.png" alt="Background"></div> -->
+    
+    <h3 id="研究背景">研究背景</h3>
+<p>这里写背景/相关工作/挑战点的文字说明……</p>
+
+<p>The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU
+[16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building
+block, computing hidden representations in parallel for all input and output positions. In these models,
+the number of operations required to relate signals from two arbitrary input or output positions grows
+in the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes
+it more difficult to learn dependencies between distant positions [12]. In the Transformer this is
+reduced to a constant number of operations, albeit at the cost of reduced effective resolution due
+to averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as
+described in section 3.2.
+Self-attention, sometimes called intra-attention is an attention mechanism relating different positions
+of a single sequence in order to compute a representation of the sequence. Self-attention has been
+used successfully in a variety of tasks including reading comprehension, abstractive summarization,
+textual entailment and learning task-independent sentence representations [4, 27, 28, 22].
+End-to-end memory networks are based on a recurrent attention mechanism instead of sequence-
+aligned recurrence and have been shown to perform well on simple-language question answering and
+language modeling tasks [34].
+To the best of our knowledge, however, the Transformer is the first transduction model relying
+entirely on self-attention to compute representations of its input and output without using sequence-
+aligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate
+self-attention and discuss its advantages over models such as [17, 18] and [9].</p>
+
+<div class="card pad">
+  <!-- 三列网格；想更宽就把 cols-3 改成 cols-4，或把 --min 调大/调小 -->
+  <div class="fig-grid cols-3">
+    <figure class="fig fig--input">
+      <img src="/assets/images/background/bg-01.jpg" alt="输入/示意图 1" />
+      <figcaption>输入/示意图 1</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <img src="/assets/images/background/bg-02.jpg" alt="相关工作 A" />
+      <figcaption>相关工作 A</figcaption>
+    </figure>
+
+    <figure class="fig">
+      <img src="/assets/images/background/bg-03.jpg" alt="相关工作 B" />
+      <figcaption>相关工作 B</figcaption>
+    </figure>
+
+    <!-- 继续复制 figure 块即可添加更多图 -->
+  </div>
+</div>
+
+<p>The goal of reducing sequential computation also forms the foundation of the Extended Neural GPU
+[16], ByteNet [18] and ConvS2S [9], all of which use convolutional neural networks as basic building
+block, computing hidden representations in parallel for all input and output positions. In these models,
+the number of operations required to relate signals from two arbitrary input or output positions grows
+in the distance between positions, linearly for ConvS2S and logarithmically for ByteNet. This makes
+it more difficult to learn dependencies between distant positions [12]. In the Transformer this is
+reduced to a constant number of operations, albeit at the cost of reduced effective resolution due
+to averaging attention-weighted positions, an effect we counteract with Multi-Head Attention as
+described in section 3.2.
+Self-attention, sometimes called intra-attention is an attention mechanism relating different positions
+of a single sequence in order to compute a representation of the sequence. Self-attention has been
+used successfully in a variety of tasks including reading comprehension, abstractive summarization,
+textual entailment and learning task-independent sentence representations [4, 27, 28, 22].
+End-to-end memory networks are based on a recurrent attention mechanism instead of sequence-
+aligned recurrence and have been shown to perform well on simple-language question answering and
+language modeling tasks [34].
+To the best of our knowledge, however, the Transformer is the first transduction model relying
+entirely on self-attention to compute representations of its input and output without using sequence-
+aligned RNNs or convolution. In the following sections, we will describe the Transformer, motivate
+self-attention and discuss its advantages over models such as [17, 18] and [9].</p>
+
   </div>
 </section>
 
-<!-- 4) Approach -->
+<!-- 4) Approach：MD → HTML -->
 <section id="approach" class="section">
-  <div class="container narrow">
+  <div class="container">
     <h2>Approach</h2>
-    <p class="subtle">概述你的方法框架、关键模块与创新点。</p>
-    <p>
-      用 2–4 个小段落描述整体流程、损失函数、训练设置、推理步骤等。若有流程图可放一张：
-    </p>
-    <!-- <div class="card" style="margin-top:12px"><img src="/gemholm/assets/images/pipeline.png" alt="Pipeline"></div> -->
+    <p class="subtle">概述方法框架、关键模块与创新点。</p>
+    
+    <h3 id="方法简介">方法简介</h3>
+<p>整体流程如图，包含 A、B、C 三个模块……（这里写你的方法文字）</p>
+
+<div class="card edge">
+  <!-- square=正方形，full=铺满整行，s-180=更紧凑；想更密就换 s-160，想稍疏一点用 s-200 -->
+  <div class="fig-grid square full hovercap s-180">
+
+
+
+
+<figure class="fig">
+  <a href="/assets/images/approach/app-01.jpg" data-lightbox="approach">
+    <img src="/assets/images/approach/app-01.jpg" alt="" />
+  </a>
+  <figcaption>说明文字</figcaption>
+</figure>
+
+<figure class="fig">
+  <a href="/assets/images/approach/app-02.jpg" data-lightbox="approach">
+    <img src="/assets/images/approach/app-02.jpg" alt="" />
+  </a>
+  <figcaption>说明文字</figcaption>
+</figure>
+
+
+<figure class="fig">
+  <a href="/assets/images/approach/app-03.jpg" data-lightbox="approach">
+    <img src="/assets/images/approach/app-03.jpg" alt="" />
+  </a>
+  <figcaption>说明文字</figcaption>
+</figure>
+
+
+
+    <!-- 继续复制 figure 即可添加更多图 -->
+    <!--
+    <figure class="fig">
+      <img src="/assets/images/approach/app-04.jpg" alt="">
+      <figcaption>说明文字</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="/assets/images/approach/app-05.jpg" alt="">
+      <figcaption>说明文字</figcaption>
+    </figure>
+    <figure class="fig">
+      <img src="/assets/images/approach/app-06.jpg" alt="">
+      <figcaption>说明文字</figcaption>
+    </figure>
+    -->
+
+  </div>
+</div>
+
   </div>
 </section>
 
+<!-- 5) Results：读取 _data/results.yml 的图墙（带放大） -->
 <!-- 5) Results -->
 <section id="results" class="section">
   <div class="container">
     <h2>Results</h2>
-    <p class="subtle">展示定性/定量结果，支持图墙布局。</p>
+    <p class="subtle">展示定性/定量结果，支持点击放大和说明文字。</p>
 
-    <!-- 单张重点结果（可选） -->
-    <!-- <div class="card" style="margin-bottom:14px">
-      <img src="/gemholm/assets/images/result_hero.png" alt="Result Highlight">
-    </div> -->
-
-    <!-- 图墙（多图） -->
-    <div class="gallery">
-      <div class="card"><img src="/gemholm/assets/images/fig1.png" alt="Figure 1"></div>
-      <div class="card"><img src="/gemholm/assets/images/fig2.png" alt="Figure 2"></div>
-      <!-- 继续添加
-      <div class="card"><img src="/gemholm/assets/images/fig3.png" alt="Figure 3"></div>
-      <div class="card"><img src="/gemholm/assets/images/fig4.png" alt="Figure 4"></div>
-      -->
+    <div class="card pad">
+      <div class="fig-grid cols-3">
+        
+        <figure class="fig">
+          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
+          <a href="/assets/images/results/res-01.jpg" data-lightbox="results">
+            <img src="/assets/images/results/res-01.jpg" alt="结果 11">
+          </a>
+          
+          <figcaption>我们的结果 vs. baseline A</figcaption>
+          
+        </figure>
+        
+        <figure class="fig">
+          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
+          <a href="/assets/images/results/res-02.jpg" data-lightbox="results">
+            <img src="/assets/images/results/res-02.jpg" alt="结果 22">
+          </a>
+          
+          <figcaption>消融：去掉模块 X</figcaption>
+          
+        </figure>
+        
+        <figure class="fig">
+          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
+          <a href="/assets/images/results/res-03.jpg" data-lightbox="results">
+            <img src="/assets/images/results/res-03.jpg" alt="结果 33">
+          </a>
+          
+          <figcaption>不同条件下的生成</figcaption>
+          
+        </figure>
+        
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 6) Societal Impact -->
+
+<!-- 6) Societal Impact：MD → HTML -->
 <section id="impact" class="section tight gray">
-  <div class="container narrow">
+  <div class="container">
     <h2>Societal Impact</h2>
-    <p class="subtle">讨论潜在社会影响、伦理考量、误用风险与缓解策略。</p>
-    <p>
-      概述模型对用户、社会的正面价值与潜在风险，例如公平性、隐私、偏见、可解释性与可控性；若有你的防滥用措施与负责任发布策略，也可在此说明。
-    </p>
+    <p class="subtle">潜在社会影响、伦理考量、误用风险与缓解策略。</p>
+    
+    <h3 id="societal-impact">Societal Impact</h3>
+<ul>
+  <li>潜在积极影响：……</li>
+  <li>风险与误用：……</li>
+  <li>缓解措施与负责任发布策略：……</li>
+</ul>
+
   </div>
 </section>
 

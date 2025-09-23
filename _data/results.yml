@@ -1,0 +1,11 @@
+images:
+  - src: /assets/images/results/res-01.jpg
+    alt: 结果 1
+    caption: "我们的结果 vs. baseline A"
+  - src: /assets/images/results/res-02.jpg
+    alt: 结果 2
+    caption: "消融：去掉模块 X"
+  - src: /assets/images/results/res-03.jpg
+    alt: 结果 3
+    caption: "不同条件下的生成"
+# 继续追加即可

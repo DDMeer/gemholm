@@ -6,3 +6,12 @@ permalink: pretty
 markdown: kramdown
 theme: null
 plugins: []
+
+
+links:
+  demo: "https://your-demo.example.com"
+  pdf:  "/assets/paper.pdf"
+  code: "https://github.com/ddmeer/gemholm"
+  arxiv: "https://arxiv.org/abs/xxxx.xxxxx"
+
+

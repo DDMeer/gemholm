@@ -367,5 +367,151 @@ pre.code {
     aspect-ratio: 3/4;
   }
 }
+/* ===== 通用图集网格（含标题） ===== */
+.fig-grid {
+  --min: 260px; /* 每列最小宽度，按需要调 */
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(var(--min), 1fr));
+  gap: 16px;
+  margin: 12px 0;
+}
+
+.fig-grid.cols-2 {
+  --min: 380px;
+}
+
+.fig-grid.cols-3 {
+  --min: 260px;
+} /* 默认 */
+.fig-grid.cols-4 {
+  --min: 200px;
+}
+
+.fig {
+  background: #fff;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  overflow: hidden;
+}
+
+.fig img {
+  width: 100%;
+  height: auto;
+  display: block;
+}
+
+.fig figcaption {
+  padding: 8px 10px;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.92rem;
+}
+
+/* 可选：给“输入图”加高亮边框，类似绿色描边 */
+.fig--input {
+  outline: 3px solid #22c55e;
+  outline-offset: -3px;
+}
+
+/* 如果想让整个区块像一张卡片有内边距 */
+.card.pad {
+  padding: 16px;
+}
+
+/* ===== 图片分割线（与内容等宽） ===== */
+/* 可调参数 */
+:root {
+  --divider-height: 18px; /* 分割线高度 = 图片显示高度 */
+  --divider-opacity: .85; /* 透明度，想更淡就调小，比如 .55 */
+}
+
+.section + .section {
+  position: relative;
+}
+
+/* 用你的 PNG 横向平铺做分割线 */
+.section + .section::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: min(1100px, 92%); /* 与 .container 对齐 */
+  height: var(--divider-height);
+  pointer-events: none;
+  opacity: var(--divider-opacity);
+  /* —— 关键：背景图片 + 横向 repeat —— */
+  background-image: url("/assets/images/divider/stars.png");
+  background-repeat: repeat-x;
+  background-position: center;
+  background-size: auto 100%; /* 高度铺满，宽度按比例平铺 */
+  /* 如果页面背景很浅、想更柔和，可加滤镜：
+  filter: saturate(.9) brightness(.97);
+  */
+}
+
+/* 不想要某一条分割线：给该 section 加 .no-divider */
+.section.no-divider::before {
+  content: none;
+}
+
+/* 小屏略微减小高度 */
+@media (max-width: 640px) {
+  :root {
+    --divider-height: 14px;
+  }
+}
+/* ==== Approach grid: force edge-to-edge, no empty tracks ==== */
+/* 容器一定要占满 */
+.card.edge {
+  padding: 0;
+}
+
+.fig-grid {
+  width: 100%;
+}
+
+/* 强制覆盖任何默认的列定义：用 auto-fit + minmax 收掉空列，铺满整行 */
+.fig-grid.full {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(var(--min, 160px), 1fr)) !important;
+  justify-content: stretch; /* 不要留下右侧空带 */
+  align-items: stretch;
+  gap: 4px; /* 比原来更紧一点；想更贴就改 2px */
+}
+
+/* 正方形裁切（如果你前面已有同名规则，可以忽略这段或保留） */
+.fig-grid.square .fig img {
+  width: 100%;
+  aspect-ratio: 1/1;
+  object-fit: cover;
+  display: block;
+}
+
+/* 说明文字固定在下方 */
+.fig-grid.belowcap .fig {
+  margin: 0;
+}
+
+.fig-grid.belowcap .fig figcaption {
+  position: static;
+  padding: 6px 2px 0;
+  text-align: center;
+  color: var(--muted);
+  font-size: 0.9rem;
+}
+
+/* 预设最小列宽（越小越多列、越紧凑） */
+.fig-grid.s-160 {
+  --min: 160px;
+}
+
+.fig-grid.s-180 {
+  --min: 180px;
+}
+
+.fig-grid.s-200 {
+  --min: 200px;
+}
 
 /*# sourceMappingURL=styles.css.map */

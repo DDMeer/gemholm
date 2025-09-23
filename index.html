@@ -3,24 +3,29 @@ layout: default
 title: 你的论文标题
 ---
 
-<!-- 1) Hero：轮播大图（自动播放，可触摸滑动） -->
+<!-- 1) Hero：轮播（读取 _data/hero.yml） -->
 <section class="section hero">
   <div class="container">
     <h1>你的论文标题</h1>
     <p class="authors">作者A<sup>1</sup>，作者B<sup>2</sup>，作者C<sup>1</sup></p>
     <p class="affiliations"><sup>1</sup>单位一　<sup>2</sup>单位二</p>
 
-    <div class="hero-slider card" data-autoplay="true" data-interval="3500" aria-label="Hero image slider">
+    {% assign hero = site.data.hero %}
+    <div
+      class="hero-slider card"
+      data-autoplay="{{ hero.autoplay | default: true }}"
+      data-interval="{{ hero.interval  | default: 3500 }}"
+      aria-label="Hero image slider"
+    >
       <div class="slides" aria-live="polite">
-        <div class="slide is-active">
-          <img src="{{ '/assets/images/hero1.jpg' | relative_url }}" alt="示例图 1">
+        {% for img in hero.images %}
+        <div class="slide{% if forloop.first %} is-active{% endif %}">
+          <img src="{{ img.src | relative_url }}" alt="{{ img.alt | default: 'Hero ' | append: forloop.index }}">
+          {% if img.caption %}
+          <div class="caption">{{ img.caption }}</div>
+          {% endif %}
         </div>
-        <div class="slide">
-          <img src="{{ '/assets/images/hero2.jpg' | relative_url }}" alt="示例图 2">
-        </div>
-        <div class="slide">
-          <img src="{{ '/assets/images/hero3.jpg' | relative_url }}" alt="示例图 3">
-        </div>
+        {% endfor %}
       </div>
       <button class="nav prev" aria-label="Previous">‹</button>
       <button class="nav next" aria-label="Next">›</button>
@@ -29,72 +34,69 @@ title: 你的论文标题
   </div>
 </section>
 
-<!-- 2) Abstract：浅灰背景、居中宽文段 -->
+<!-- 2) Abstract：MD → HTML -->
 <section id="abstract" class="section gray">
   <div class="container">
     <h2 class="h2-center">Abstract</h2>
     <div class="lead">
-      <p>
-        这里写摘要。建议 1–2 个段落，简述问题、方法与结论。长度参考示例页，保证行宽舒适、易读。
-      </p>
+      {% capture abs_raw %}{% include sections/abstract.md %}{% endcapture %}
+      {{ abs_raw | markdownify }}
     </div>
   </div>
 </section>
 
-<!-- 3) Background -->
+<!-- 3) Background：MD → HTML -->
 <section id="background" class="section">
-  <div class="container narrow">
+  <div class="container">
     <h2>Background</h2>
     <p class="subtle">简述研究背景、相关工作或挑战点。</p>
-    <p>
-      在此补充背景说明，可插入一张参考图（可选）。
-    </p>
-    <!-- <div class="card" style="margin-top:12px"><img src="{{ '/assets/images/bg.png' | relative_url }}" alt="Background"></div> -->
+    {% capture bg_raw %}{% include sections/background.md %}{% endcapture %}
+    {{ bg_raw | markdownify }}
   </div>
 </section>
 
-<!-- 4) Approach -->
+<!-- 4) Approach：MD → HTML -->
 <section id="approach" class="section">
-  <div class="container narrow">
+  <div class="container">
     <h2>Approach</h2>
-    <p class="subtle">概述你的方法框架、关键模块与创新点。</p>
-    <p>
-      用 2–4 个小段落描述整体流程、损失函数、训练设置、推理步骤等。若有流程图可放一张：
-    </p>
-    <!-- <div class="card" style="margin-top:12px"><img src="{{ '/assets/images/pipeline.png' | relative_url }}" alt="Pipeline"></div> -->
+    <p class="subtle">概述方法框架、关键模块与创新点。</p>
+    {% capture app_raw %}{% include sections/approach.md %}{% endcapture %}
+    {{ app_raw | markdownify }}
   </div>
 </section>
 
+<!-- 5) Results：读取 _data/results.yml 的图墙（带放大） -->
 <!-- 5) Results -->
 <section id="results" class="section">
   <div class="container">
     <h2>Results</h2>
-    <p class="subtle">展示定性/定量结果，支持图墙布局。</p>
+    <p class="subtle">展示定性/定量结果，支持点击放大和说明文字。</p>
 
-    <!-- 单张重点结果（可选） -->
-    <!-- <div class="card" style="margin-bottom:14px">
-      <img src="{{ '/assets/images/result_hero.png' | relative_url }}" alt="Result Highlight">
-    </div> -->
-
-    <!-- 图墙（多图） -->
-    <div class="gallery">
-      <div class="card"><img src="{{ '/assets/images/fig1.png' | relative_url }}" alt="Figure 1"></div>
-      <div class="card"><img src="{{ '/assets/images/fig2.png' | relative_url }}" alt="Figure 2"></div>
-      <!-- 继续添加
-      <div class="card"><img src="{{ '/assets/images/fig3.png' | relative_url }}" alt="Figure 3"></div>
-      <div class="card"><img src="{{ '/assets/images/fig4.png' | relative_url }}" alt="Figure 4"></div>
-      -->
+    <div class="card pad">
+      <div class="fig-grid cols-3">
+        {% for f in site.data.results.images %}
+        <figure class="fig">
+          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
+          <a href="{{ f.src | relative_url }}" data-lightbox="results">
+            <img src="{{ f.src | relative_url }}" alt="{{ f.alt | default: 'Result ' | append: forloop.index }}">
+          </a>
+          {% if f.caption %}
+          <figcaption>{{ f.caption }}</figcaption>
+          {% endif %}
+        </figure>
+        {% endfor %}
+      </div>
     </div>
   </div>
 </section>
 
-<!-- 6) Societal Impact -->
+
+<!-- 6) Societal Impact：MD → HTML -->
 <section id="impact" class="section tight gray">
-  <div class="container narrow">
+  <div class="container">
     <h2>Societal Impact</h2>
-    <p class="subtle">讨论潜在社会影响、伦理考量、误用风险与缓解策略。</p>
-    <p>
-      概述模型对用户、社会的正面价值与潜在风险，例如公平性、隐私、偏见、可解释性与可控性；若有你的防滥用措施与负责任发布策略，也可在此说明。
-    </p>
+    <p class="subtle">潜在社会影响、伦理考量、误用风险与缓解策略。</p>
+    {% capture imp_raw %}{% include sections/impact.md %}{% endcapture %}
+    {{ imp_raw | markdownify }}
   </div>
 </section>
