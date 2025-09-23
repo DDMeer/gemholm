@@ -37,11 +37,11 @@ a {
 }
 
 .narrow {
-  width: min(850px, 92%);
+  width: min(900px, 92%);
   margin: 0 auto;
 }
 
-/* Header：半透明粘顶 */
+/* Header：半透明、粘顶 */
 .site-header {
   position: sticky;
   top: 0;
@@ -63,16 +63,51 @@ a {
   color: var(--brand);
 }
 
-.nav a {
-  margin-left: 16px;
+/* Header 右上角按钮（深色胶囊） */
+.nav.actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.pill {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  height: 36px;
+  padding: 0 16px;
+  border-radius: 999px;
+  background: #2b2b2b;
+  color: #fff;
   text-decoration: none;
-  color: var(--text);
+  border: 1px solid rgba(255, 255, 255, 0.06);
+  transition: transform 0.04s ease, filter 0.2s ease, background 0.2s ease;
+  font-weight: 500;
+  letter-spacing: 0.2px;
 }
 
-.nav a:hover {
-  color: var(--accent);
+.pill:hover {
+  filter: brightness(1.1);
 }
 
+.pill:active {
+  transform: translateY(1px);
+}
+
+.pill.demo {
+  background: #2b2b2b;
+}
+
+@media (max-width: 520px) {
+  .nav.actions {
+    gap: 8px;
+  }
+  .pill {
+    height: 34px;
+    padding: 0 12px;
+    font-size: 14px;
+  }
+}
 /* Sections */
 .section {
   padding: 56px 0;
@@ -83,12 +118,17 @@ a {
   font-size: 1.6rem;
 }
 
-.hint {
+.hint, .subtle {
   color: var(--muted);
   font-size: 0.95rem;
 }
 
-/* Hero */
+.subtle {
+  margin-top: -6px;
+  margin-bottom: 14px;
+}
+
+/* Hero（标题区） */
 .hero {
   padding-top: 72px;
 }
@@ -103,7 +143,7 @@ a {
   margin: 6px 0;
 }
 
-/* Buttons */
+/* 按钮（正文中） */
 .cta {
   margin: 16px 0 20px;
   display: flex;
@@ -131,7 +171,7 @@ a {
   filter: brightness(0.97);
 }
 
-/* Cards */
+/* 卡片 */
 .card {
   border: 1px solid var(--border);
   border-radius: var(--radius);
@@ -139,38 +179,44 @@ a {
   background: #fff;
 }
 
-/* Media */
-.teaser {
-  margin-top: 12px;
+/* 浅灰区（Abstract、Impact） */
+.section.gray {
+  background: #f3f4f6;
 }
 
-.pdf-frame {
-  aspect-ratio: 16/11;
-  border: 1px solid var(--border);
-  border-radius: var(--radius);
-  overflow: hidden;
+.lead {
+  width: min(900px, 92%);
+  margin: 0 auto;
+  font-size: 18px;
+  line-height: 1.85;
+  color: var(--text);
 }
 
-.pdf-frame iframe {
-  width: 100%;
-  height: 100%;
-  border: 0;
+.h2-center {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
 }
 
-/* Grid */
-.grid {
+.section.tight {
+  padding-top: 44px;
+  padding-bottom: 44px;
+}
+
+/* 图墙（Results） */
+.gallery {
   display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(220px, 1fr));
+  grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
   gap: 12px;
 }
 
-.grid-item.card img {
+.gallery .card img {
   width: 100%;
   height: auto;
   display: block;
 }
 
-/* Code block */
+/* 代码块（用于 BibTeX 等） */
 pre.code {
   background: #0b1020;
   color: #e6edf3;
@@ -180,7 +226,7 @@ pre.code {
   font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-/* Footer */
+/* 页脚 */
 .site-footer {
   border-top: 1px solid var(--border);
   background: var(--surface);
@@ -220,11 +266,103 @@ pre.code {
   display: flex;
 }
 
-/* Mobile */
-@media (max-width: 480px) {
-  .nav {
-    display: none;
+/* ===== Hero 轮播样式（修复 .hero-slider 断行） ===== */
+.hero-slider {
+  position: relative;
+  background: #000;
+}
+
+.hero-slider .slides {
+  position: relative;
+  aspect-ratio: 21/9; /* 需要可改成 16 / 9 */
+  overflow: hidden;
+}
+
+.hero-slider .slide {
+  position: absolute;
+  inset: 0;
+  opacity: 0;
+  transition: opacity 0.45s ease;
+  pointer-events: none;
+}
+
+.hero-slider .slide.is-active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.hero-slider img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* 左右切换按钮 */
+.hero-slider .nav {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 40px;
+  height: 40px;
+  border: 0;
+  border-radius: 999px;
+  background: rgba(0, 0, 0, 0.45);
+  color: #fff;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  backdrop-filter: blur(2px);
+}
+
+.hero-slider .nav:hover {
+  background: rgba(0, 0, 0, 0.6);
+}
+
+.hero-slider .nav.prev {
+  left: 10px;
+}
+
+.hero-slider .nav.next {
+  right: 10px;
+}
+
+/* 圆点 */
+.hero-slider .dots {
+  position: absolute;
+  left: 50%;
+  bottom: 12px;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 8px;
+}
+
+.hero-slider .dot {
+  width: 8px;
+  height: 8px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.6);
+  border: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+.hero-slider .dot.is-active {
+  background: #fff;
+}
+
+@media (max-width: 640px) {
+  .hero-slider .slides {
+    aspect-ratio: 16/9;
   }
+  .hero-slider .nav {
+    width: 34px;
+    height: 34px;
+  }
+}
+/* 移动端：PDF 预览比例 */
+@media (max-width: 480px) {
   .pdf-frame {
     aspect-ratio: 3/4;
   }

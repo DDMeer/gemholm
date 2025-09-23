@@ -5,43 +5,220 @@
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>你的论文标题</title>
   <meta name="description" content="单页项目展示">
-  <link rel="stylesheet" href="/assets/css/styles.css">
+  <link rel="stylesheet" href="/gemholm/assets/css/styles.css">
 </head>
 <body>
   <header class="site-header">
     <div class="container header-inner">
       <div class="brand">你的论文标题</div>
-      <nav class="nav">
-        <a href="#abstract">摘要</a>
-        <a href="#teaser">效果</a>
-        <a href="#figures">图片</a>
-        <a href="#pdf">PDF预览</a>
-        <a href="#bibtex">引用</a>
+      <!-- 右上角四个胶囊按钮 -->
+      <nav class="nav actions">
+        <a class="pill demo" href="https://your-demo.example.com" target="_blank" rel="noopener">Demo</a>
+        <a class="pill" href="/gemholm/assets/paper.pdf" target="_blank" rel="noopener">PDF</a>
+        <a class="pill" href="https://github.com/your-username/gemholm" target="_blank" rel="noopener">Code</a>
+        <a class="pill" href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">arXiv</a>
       </nav>
     </div>
   </header>
+
   <main class="site-main">
-    <section class="section hero">
+    <!-- 1) Hero：轮播大图（自动播放，可触摸滑动） -->
+<section class="section hero">
   <div class="container">
     <h1>你的论文标题</h1>
-    <p class="authors">作者A，作者B，作者C</p>
-    <p class="affiliations">单位一，单位二</p>
-    <div class="cta">
-      <a class="btn primary" href="/assets/paper.pdf" target="_blank">PDF 下载</a>
-    </div>
-    <div class="teaser card">
-      <img src="/assets/images/teaser.jpg" alt="论文效果图预览">
+    <p class="authors">作者A<sup>1</sup>，作者B<sup>2</sup>，作者C<sup>1</sup></p>
+    <p class="affiliations"><sup>1</sup>单位一　<sup>2</sup>单位二</p>
+
+    <div class="hero-slider card" data-autoplay="true" data-interval="3500" aria-label="Hero image slider">
+      <div class="slides" aria-live="polite">
+        <div class="slide is-active">
+          <img src="/gemholm/assets/images/hero1.jpg" alt="示例图 1">
+        </div>
+        <div class="slide">
+          <img src="/gemholm/assets/images/hero2.jpg" alt="示例图 2">
+        </div>
+        <div class="slide">
+          <img src="/gemholm/assets/images/hero3.jpg" alt="示例图 3">
+        </div>
+      </div>
+      <button class="nav prev" aria-label="Previous">‹</button>
+      <button class="nav next" aria-label="Next">›</button>
+      <div class="dots"></div>
     </div>
   </div>
 </section>
 
+<!-- 2) Abstract：浅灰背景、居中宽文段 -->
+<section id="abstract" class="section gray">
+  <div class="container">
+    <h2 class="h2-center">Abstract</h2>
+    <div class="lead">
+      <p>
+        这里写摘要。建议 1–2 个段落，简述问题、方法与结论。长度参考示例页，保证行宽舒适、易读。
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- 3) Background -->
+<section id="background" class="section">
+  <div class="container narrow">
+    <h2>Background</h2>
+    <p class="subtle">简述研究背景、相关工作或挑战点。</p>
+    <p>
+      在此补充背景说明，可插入一张参考图（可选）。
+    </p>
+    <!-- <div class="card" style="margin-top:12px"><img src="/gemholm/assets/images/bg.png" alt="Background"></div> -->
+  </div>
+</section>
+
+<!-- 4) Approach -->
+<section id="approach" class="section">
+  <div class="container narrow">
+    <h2>Approach</h2>
+    <p class="subtle">概述你的方法框架、关键模块与创新点。</p>
+    <p>
+      用 2–4 个小段落描述整体流程、损失函数、训练设置、推理步骤等。若有流程图可放一张：
+    </p>
+    <!-- <div class="card" style="margin-top:12px"><img src="/gemholm/assets/images/pipeline.png" alt="Pipeline"></div> -->
+  </div>
+</section>
+
+<!-- 5) Results -->
+<section id="results" class="section">
+  <div class="container">
+    <h2>Results</h2>
+    <p class="subtle">展示定性/定量结果，支持图墙布局。</p>
+
+    <!-- 单张重点结果（可选） -->
+    <!-- <div class="card" style="margin-bottom:14px">
+      <img src="/gemholm/assets/images/result_hero.png" alt="Result Highlight">
+    </div> -->
+
+    <!-- 图墙（多图） -->
+    <div class="gallery">
+      <div class="card"><img src="/gemholm/assets/images/fig1.png" alt="Figure 1"></div>
+      <div class="card"><img src="/gemholm/assets/images/fig2.png" alt="Figure 2"></div>
+      <!-- 继续添加
+      <div class="card"><img src="/gemholm/assets/images/fig3.png" alt="Figure 3"></div>
+      <div class="card"><img src="/gemholm/assets/images/fig4.png" alt="Figure 4"></div>
+      -->
+    </div>
+  </div>
+</section>
+
+<!-- 6) Societal Impact -->
+<section id="impact" class="section tight gray">
+  <div class="container narrow">
+    <h2>Societal Impact</h2>
+    <p class="subtle">讨论潜在社会影响、伦理考量、误用风险与缓解策略。</p>
+    <p>
+      概述模型对用户、社会的正面价值与潜在风险，例如公平性、隐私、偏见、可解释性与可控性；若有你的防滥用措施与负责任发布策略，也可在此说明。
+    </p>
+  </div>
+</section>
+
   </main>
+
   <footer class="site-footer">
     <div class="container footer-inner">
       <span>© 2025 Your Name</span>
       <span class="sep">•</span>
-      <a href="https://github.com/your/repo" target="_blank" rel="noopener">GitHub</a>
+      <a href="https://github.com/your-username/gemholm" target="_blank" rel="noopener">GitHub</a>
     </div>
   </footer>
+
+  <!-- 轻量 Lightbox（保留，便于后续结果图放大） -->
+  <div id="lightbox" class="lightbox" aria-hidden="true">
+    <img alt="预览大图">
+  </div>
+  <script>
+  (function () {
+    const overlay = document.getElementById('lightbox');
+    const overlayImg = overlay.querySelector('img');
+    document.addEventListener('click', (e) => {
+      const a = e.target.closest('a[data-lightbox]');
+      if (a) {
+        e.preventDefault();
+        overlayImg.src = a.getAttribute('href');
+        overlay.classList.add('show');
+        overlay.setAttribute('aria-hidden', 'false');
+      }
+      if (e.target === overlay) {
+        overlay.classList.remove('show');
+        overlay.setAttribute('aria-hidden', 'true');
+        overlayImg.src = '';
+      }
+    });
+  })();
+  </script>
+
+  <!-- Hero 轮播脚本（零依赖） -->
+  <script>
+  (function () {
+    document.querySelectorAll('.hero-slider').forEach(function (root) {
+      var slides = Array.from(root.querySelectorAll('.slide'));
+      if (slides.length <= 1) return;
+
+      // 生成圆点
+      var dotsWrap = root.querySelector('.dots') || document.createElement('div');
+      dotsWrap.classList.add('dots'); dotsWrap.innerHTML = '';
+      slides.forEach(function (_, i) {
+        var b = document.createElement('button');
+        b.className = 'dot' + (i === 0 ? ' is-active' : '');
+        b.setAttribute('aria-label', 'Go to slide ' + (i + 1));
+        b.addEventListener('click', function () { go(i); });
+        dotsWrap.appendChild(b);
+      });
+      if (!root.querySelector('.dots')) root.appendChild(dotsWrap);
+      var dots = Array.from(dotsWrap.querySelectorAll('.dot'));
+
+      var prevBtn = root.querySelector('.prev');
+      var nextBtn = root.querySelector('.next');
+      var idx = 0;
+      var autoplay = root.dataset.autoplay === 'true';
+      var interval = parseInt(root.dataset.interval || '3500', 10);
+      var timer = null;
+
+      function setActive(i) {
+        slides.forEach(function (s, k) { s.classList.toggle('is-active', k === i); });
+        dots.forEach(function (d, k) { d.classList.toggle('is-active', k === i); });
+      }
+      function go(i) { idx = (i + slides.length) % slides.length; setActive(idx); restart(); }
+      function next() { go(idx + 1); }
+      function prev() { go(idx - 1); }
+
+      prevBtn && prevBtn.addEventListener('click', prev);
+      nextBtn && nextBtn.addEventListener('click', next);
+
+      function start() { if (!autoplay) return; stop(); timer = setInterval(next, interval); }
+      function stop()  { if (timer) { clearInterval(timer); timer = null; } }
+      function restart(){ if (autoplay) { stop(); start(); } }
+
+      root.addEventListener('mouseenter', stop);
+      root.addEventListener('mouseleave', start);
+      document.addEventListener('visibilitychange', function () { document.hidden ? stop() : start(); });
+
+      // 触摸滑动
+      var startX = null;
+      root.addEventListener('touchstart', function (e) { startX = e.touches[0].clientX; }, {passive:true});
+      root.addEventListener('touchend', function (e) {
+        if (startX == null) return;
+        var dx = e.changedTouches[0].clientX - startX; startX = null;
+        var threshold = 35;
+        if (dx > threshold) prev(); else if (dx < -threshold) next();
+      });
+
+      // 键盘左右键
+      root.addEventListener('keydown', function (e) {
+        if (e.key === 'ArrowLeft') prev();
+        if (e.key === 'ArrowRight') next();
+      });
+      root.setAttribute('tabindex', '0');
+
+      start();
+    });
+  })();
+  </script>
 </body>
 </html>
