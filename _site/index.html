@@ -247,50 +247,46 @@ self-attention and discuss its advantages over models such as [17, 18] and [9].<
   </div>
 </section>
 
+
+
+
+
 <!-- 5) Results：读取 _data/results.yml 的图墙（带放大） -->
 <!-- 5) Results -->
+
+
+<!-- 5) Results：由 results.md 驱动 -->
 <section id="results" class="section">
   <div class="container">
     <h2>Results</h2>
-    <p class="subtle">展示定性/定量结果，支持点击放大和说明文字。</p>
+    <p class="subtle">展示定性/定量结果，支持 PDF 预览与说明文字。</p>
 
-    <div class="card pad">
-      <div class="fig-grid cols-3">
-        
-        <figure class="fig">
-          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
-          <a href="/assets/images/results/res-01.jpg" data-lightbox="results">
-            <img src="/assets/images/results/res-01.jpg" alt="结果 11">
-          </a>
-          
-          <figcaption>我们的结果 vs. baseline A</figcaption>
-          
-        </figure>
-        
-        <figure class="fig">
-          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
-          <a href="/assets/images/results/res-02.jpg" data-lightbox="results">
-            <img src="/assets/images/results/res-02.jpg" alt="结果 22">
-          </a>
-          
-          <figcaption>消融：去掉模块 X</figcaption>
-          
-        </figure>
-        
-        <figure class="fig">
-          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
-          <a href="/assets/images/results/res-03.jpg" data-lightbox="results">
-            <img src="/assets/images/results/res-03.jpg" alt="结果 33">
-          </a>
-          
-          <figcaption>不同条件下的生成</figcaption>
-          
-        </figure>
-        
-      </div>
-    </div>
+    
+    <h3 id="poster--paper">Poster / Paper</h3>
+
+<div class="card pad">
+  <!-- 本地 PDF：assets/papers/paper.pdf -->
+  <iframe class="pdf-embed" src="/assets/papers/paper.pdf#toolbar=1&amp;navpanes=0&amp;view=FitH" loading="lazy"></iframe>
+
+  <!-- 兜底：如果浏览器禁用内联预览，显示下载/打开链接 -->
+  <p style="margin-top:.75rem;text-align:center;">
+    如果没有显示预览，<a href="/assets/papers/paper.pdf" target="_blank" rel="noopener">点击这里打开/下载 PDF</a>
+  </p>
+</div>
+
+<!-- 你还可以在这里继续写其它结果说明、图表等 Markdown 内容 -->
+
   </div>
 </section>
+
+
+
+
+
+
+
+
+
 
 
 <!-- 6) Societal Impact：MD → HTML -->

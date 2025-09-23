@@ -514,34 +514,85 @@ pre.code {
   --min: 200px;
 }
 
-/* 统一定义手写字体栈（英文 + 中文） */
-:root {
-  --hand-font: "Caveat", "Ma Shan Zheng",
-               ui-sans-serif, -apple-system, system-ui, "Segoe UI",
-               Roboto, "Helvetica Neue", Arial, "PingFang SC",
-               "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
-               sans-serif;
+/* ========== PDF viewer ========== */
+.pdf-wrap {
+  width: 100%;
+  max-width: 1200px; /* 和你页面内容宽度保持一致 */
+  margin: 2rem auto;
+  height: min(90vh, 1000px); /* 高度自适应，最多 1000px */
+  border-radius: 12px;
+  overflow: hidden;
+  background: #fff;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
 }
 
-/* 强力命中所有常见标题：页面/区块/布局里的 h1 h2，以及一些常见类名 */
-h1, h2, h3, h4, h5, h6,
-main h1, main h2,
-.section h1, .section h2,
-.section-title, .paper-title, .page-title, .post-title,
-h1[id], h2[id] {
-  font-family: var(--hand-font) !important;
-  font-weight: 700 !important; /* 关键：避免主题定义 800/900 导致回退 */
-  text-align: center !important; /* 标题居中 */
-  letter-spacing: 0.5px;
-  font-size: clamp(28px, 3.2vw, 48px);
-  line-height: 1.2;
+.pdf-wrap .pdf-object,
+.pdf-wrap embed,
+.pdf-wrap iframe {
+  width: 100%;
+  height: 100%;
+  border: 0;
 }
 
-/* 如果你有副标题/引导文字想居中（可选） */
-.section p.lead, .section .subtitle {
+/* --- Hand title: 立即见效版（只用系统字体） --- */
+/* 这些是常见的“手写体/涂鸦体”系统字体：macOS / Windows / Linux 都列了几个。 */
+.hand-title,
+.section h1.hand-title,
+.section h2.hand-title {
+  font-family: "Bradley Hand", "Marker Felt", "Chalkboard SE", "Segoe Print", "Comic Sans MS", "KaiTi", "Kaiti SC", cursive !important; /* 最后兜底，必须加 !important 提升优先级 */
+  text-align: center; /* 保证居中 */
+  letter-spacing: 0.3px; /* 略微松散一点，更像手写 */
+}
+
+/* 标题统一居中（配合你 index.html 里加的 h2-center 类） */
+.h2-center {
+  text-align: center !important;
+}
+
+/* --- Hand title: 本地字体版（不依赖网络） --- */
+@font-face {
+  font-family: "CaveatLocal";
+  src: url("/assets/fonts/Caveat-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "CaveatLocal";
+  src: url("/assets/fonts/Caveat-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+@font-face {
+  font-family: "ZCoolLocal";
+  src: url("/assets/fonts/ZCOOLKuaiLe-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+/* 统一给 .hand-title 使用本地字体，带多重兜底（即便本地字体没放好，也会走系统手写体） */
+.hand-title,
+.section h1.hand-title,
+.section h2.hand-title {
+  font-family: "CaveatLocal", "ZCoolLocal", "Bradley Hand", "Marker Felt", "Chalkboard SE", "Segoe Print", "Comic Sans MS", "KaiTi", "Kaiti SC", cursive !important;
   text-align: center;
-  max-width: 980px;
-  margin: 0 auto 2rem;
+}
+
+/* PDF 预览 iframe 的基础样式 */
+.pdf-embed {
+  width: 100%;
+  height: min(80vh, 950px); /* 桌面端较高，移动端自动压缩 */
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* 移动端再矮一点 */
+@media (max-width: 768px) {
+  .pdf-embed {
+    height: 70vh;
+  }
 }
 
 /*# sourceMappingURL=styles.css.map */

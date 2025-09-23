@@ -65,30 +65,33 @@ title: 你的论文标题
   </div>
 </section>
 
+
+
+
+
 <!-- 5) Results：读取 _data/results.yml 的图墙（带放大） -->
 <!-- 5) Results -->
+
+
+<!-- 5) Results：由 results.md 驱动 -->
 <section id="results" class="section">
   <div class="container">
     <h2>Results</h2>
-    <p class="subtle">展示定性/定量结果，支持点击放大和说明文字。</p>
+    <p class="subtle">展示定性/定量结果，支持 PDF 预览与说明文字。</p>
 
-    <div class="card pad">
-      <div class="fig-grid cols-3">
-        {% for f in site.data.results.images %}
-        <figure class="fig">
-          <!-- 点击放大：复用默认布局里的 lightbox 脚本 -->
-          <a href="{{ f.src | relative_url }}" data-lightbox="results">
-            <img src="{{ f.src | relative_url }}" alt="{{ f.alt | default: 'Result ' | append: forloop.index }}">
-          </a>
-          {% if f.caption %}
-          <figcaption>{{ f.caption }}</figcaption>
-          {% endif %}
-        </figure>
-        {% endfor %}
-      </div>
-    </div>
+    {% capture res_raw %}{% include sections/results.md %}{% endcapture %}
+    {{ res_raw | markdownify }}
   </div>
 </section>
+
+
+
+
+
+
+
+
+
 
 
 <!-- 6) Societal Impact：MD → HTML -->
