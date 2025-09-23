@@ -1,0 +1,81 @@
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Jekyll v{{ jekyll.version }}">
+
+  <title>{% if page.title %}{{ page.title }} · {% endif %}{{ site.title | default: "gemholm" }}</title>
+  <meta name="description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 160 }}">
+  <meta name="theme-color" content="#ffffff">
+
+  {% if site.url %}
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | absolute_url }}">
+    <meta property="og:url" content="{{ page.url | replace:'index.html','' | absolute_url }}">
+  {% else %}
+    <link rel="canonical" href="{{ page.url | replace:'index.html','' | relative_url }}">
+  {% endif %}
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="{{ page.title | default: site.title }}">
+  <meta property="og:site_name" content="{{ site.title | default: 'gemholm' }}">
+  <meta property="og:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 200 }}">
+  {% if page.og_image or site.og_image %}
+    <meta property="og:image" content="{{ page.og_image | default: site.og_image | relative_url }}">
+  {% endif %}
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="{{ page.title | default: site.title }}">
+  <meta name="twitter:description" content="{{ page.description | default: site.description | strip_html | strip_newlines | truncate: 200 }}">
+  {% if page.twitter_image or site.twitter_image %}
+    <meta name="twitter:image" content="{{ page.twitter_image | default: site.twitter_image | relative_url }}">
+  {% endif %}
+
+  <!-- Icons -->
+  <link rel="icon" href="{{ '/assets/favicon.ico' | relative_url }}">
+  <link rel="apple-touch-icon" href="{{ '/assets/apple-touch-icon.png' | relative_url }}">
+
+  <!-- 站点主样式（由 assets/css/styles.scss 编译而来） -->
+  <link rel="stylesheet" href="{{ '/assets/css/styles.css' | relative_url }}?v={{ site.time | date: '%s' }}">
+
+  <!-- 预连接加速字体域名 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+  <!-- 手写体字体（英：Caveat；中：Ma Shan Zheng） -->
+  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+
+  <!-- 让标题使用手写体并居中：放在 <head> 最末，权重最高 -->
+  <style id="handwriting-headings">
+    :root{
+      --hand-font: "Caveat", "Ma Shan Zheng",
+                   ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+                   Roboto, "Helvetica Neue", Arial, "PingFang SC",
+                   "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+                   sans-serif;
+    }
+    /* 覆盖常见标题选择器 —— 用 !important 保证压过主题 */
+    h1, h2, h3, h4, h5, h6,
+    main h1, main h2,
+    .section h1, .section h2,
+    .section-title, .paper-title, .page-title, .post-title,
+    h1[id], h2[id] {
+      font-family: var(--hand-font) !important;
+      text-align: center !important;
+      font-weight: 600 !important; /* 英文更好看；中文若无字重会合成 */
+      letter-spacing: .4px;
+      line-height: 1.2;
+    }
+    /* 页面语言是中文时，降一点字重，中文手写更自然 */
+    html[lang^="zh"] h1,
+    html[lang^="zh"] h2,
+    html[lang^="zh"] .section h2,
+    html[lang^="zh"] .section-title,
+    html[lang^="zh"] .page-title,
+    html[lang^="zh"] .post-title {
+      font-weight: 400 !important;
+    }
+  </style>
+
+  {% if page.head_extra %}{{ page.head_extra }}{% endif %}
+</head>
