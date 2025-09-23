@@ -1,4 +1,5 @@
 @charset "UTF-8";
+@import url("https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Ma+Shan+Zheng&display=swap");
 :root {
   --bg: #ffffff;
   --text: #1f2937;
@@ -534,6 +535,21 @@ pre.code {
   border: 0;
 }
 
+/* PDF 预览 iframe 的基础样式 */
+.pdf-embed {
+  width: 100%;
+  height: min(80vh, 950px); /* 桌面端较高，移动端自动压缩 */
+  border: 0;
+  border-radius: 14px;
+  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+}
+
+/* 移动端再矮一点 */
+@media (max-width: 768px) {
+  .pdf-embed {
+    height: 70vh;
+  }
+}
 /* --- Hand title: 立即见效版（只用系统字体） --- */
 /* 这些是常见的“手写体/涂鸦体”系统字体：macOS / Windows / Linux 都列了几个。 */
 .hand-title,
@@ -549,50 +565,62 @@ pre.code {
   text-align: center !important;
 }
 
-/* --- Hand title: 本地字体版（不依赖网络） --- */
-@font-face {
-  font-family: "CaveatLocal";
-  src: url("/assets/fonts/Caveat-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "CaveatLocal";
-  src: url("/assets/fonts/Caveat-Bold.woff2") format("woff2");
-  font-weight: 700;
-  font-style: normal;
-  font-display: swap;
-}
-@font-face {
-  font-family: "ZCoolLocal";
-  src: url("/assets/fonts/ZCOOLKuaiLe-Regular.woff2") format("woff2");
-  font-weight: 400;
-  font-style: normal;
-  font-display: swap;
-}
-/* 统一给 .hand-title 使用本地字体，带多重兜底（即便本地字体没放好，也会走系统手写体） */
-.hand-title,
-.section h1.hand-title,
-.section h2.hand-title {
-  font-family: "CaveatLocal", "ZCoolLocal", "Bradley Hand", "Marker Felt", "Chalkboard SE", "Segoe Print", "Comic Sans MS", "KaiTi", "Kaiti SC", cursive !important;
-  text-align: center;
+/* 载入两款常用“手写风”中文/英文字体（有回退方案） */
+/* 只加载 Patrick Hand + 中文兜底 */
+:root {
+  /* 让 --hand-font 以 Patrick Hand 为主，中文兜底用 Ma Shan Zheng */
+  --hand-font: "Patrick Hand", "Ma Shan Zheng",
+               ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+               Roboto, "Helvetica Neue", Arial, "PingFang SC",
+               "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+               sans-serif;
 }
 
-/* PDF 预览 iframe 的基础样式 */
-.pdf-embed {
-  width: 100%;
-  height: min(80vh, 950px); /* 桌面端较高，移动端自动压缩 */
-  border: 0;
-  border-radius: 14px;
-  box-shadow: 0 8px 28px rgba(0, 0, 0, 0.12);
+/* 用在 5 个 section 标题上的公共类 */
+/* 手写标题：更大、更黑、带阴影+细描边 */
+/* 手写标题：更大 + 大屏分段再放大 */
+.hand-title {
+  font-family: var(--hand-font);
+  font-weight: 900;
+  color: #0d0d0d;
+  line-height: 1.05;
+  letter-spacing: 0.4px;
+  margin: 30px 0 10px;
+  /* 更强可读性：细描边 + 柔和阴影 */
+  -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.18);
+  text-shadow: 0 2px 0 rgba(0, 0, 0, 0.06), 0 8px 22px rgba(0, 0, 0, 0.12);
+  /* 移动端～中等屏幕：已经比之前大很多 */
+  font-size: clamp(48px, 8vw, 92px);
 }
 
-/* 移动端再矮一点 */
-@media (max-width: 768px) {
-  .pdf-embed {
-    height: 70vh;
+/* 大屏逐级再放大 */
+@media (min-width: 1200px) {
+  .hand-title {
+    font-size: 108px;
   }
+}
+@media (min-width: 1536px) {
+  .hand-title {
+    font-size: 124px;
+  }
+}
+@media (min-width: 1920px) {
+  .hand-title {
+    font-size: 140px;
+  }
+}
+/* 你已有的居中类 h2-center 继续控制对齐；其余标题仍按容器对齐 */
+/* 右上角导航按钮用 Patrick Hand */
+.nav.actions a.pill {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.2rem;
+}
+
+/* 左上角标题使用 Patrick Hand 字体 */
+.brand {
+  font-family: "Patrick Hand", cursive;
+  font-size: 1.6rem; /* 可按需要调大调小 */
+  font-weight: normal; /* Patrick Hand 不需要粗体 */
 }
 
 /*# sourceMappingURL=styles.css.map */

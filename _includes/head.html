@@ -42,40 +42,71 @@
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 
-  <!-- 手写体字体（英：Caveat；中：Ma Shan Zheng） -->
-  <link href="https://fonts.googleapis.com/css2?family=Caveat:wght@600;700&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+
+<!-- 手写体字体（英：Patrick Hand；中：Ma Shan Zheng） -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+
 
   <!-- 让标题使用手写体并居中：放在 <head> 最末，权重最高 -->
-  <style id="handwriting-headings">
-    :root{
-      --hand-font: "Caveat", "Ma Shan Zheng",
-                   ui-sans-serif, -apple-system, system-ui, "Segoe UI",
-                   Roboto, "Helvetica Neue", Arial, "PingFang SC",
-                   "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
-                   sans-serif;
-    }
-    /* 覆盖常见标题选择器 —— 用 !important 保证压过主题 */
-    h1, h2, h3, h4, h5, h6,
-    main h1, main h2,
-    .section h1, .section h2,
-    .section-title, .paper-title, .page-title, .post-title,
-    h1[id], h2[id] {
-      font-family: var(--hand-font) !important;
-      text-align: center !important;
-      font-weight: 600 !important; /* 英文更好看；中文若无字重会合成 */
-      letter-spacing: .4px;
-      line-height: 1.2;
-    }
-    /* 页面语言是中文时，降一点字重，中文手写更自然 */
-    html[lang^="zh"] h1,
-    html[lang^="zh"] h2,
-    html[lang^="zh"] .section h2,
-    html[lang^="zh"] .section-title,
-    html[lang^="zh"] .page-title,
-    html[lang^="zh"] .post-title {
-      font-weight: 400 !important;
-    }
-  </style>
+<style id="handwriting-headings">
+  :root{
+    /* 把主手写体换成 Patrick Hand；中文用「Ma Shan Zheng」兜底 */
+    --hand-font: "Patrick Hand", "Ma Shan Zheng",
+                 ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+                 sans-serif;
+  }
+
+  /* 让各类标题都用手写体，且强制居中 */
+  h1, h2, h3, h4, h5, h6,
+  main h1, main h2,
+  .section h1, .section h2,
+  .section-title, .paper-title, .page-title, .post-title,
+  h1[id], h2[id] {
+    font-family: var(--hand-font) !important;
+    text-align: center !important;
+    font-weight: 700 !important;        /* 更黑一些 */
+    letter-spacing: .2px;
+    line-height: 1.15;
+    text-shadow:
+      0 1px 0 #fff,                     /* 细白描，浅浅抬亮 */
+      0 3px 8px rgba(0,0,0,.12);        /* 柔和阴影，增强对比 */
+  }
+
+  /* 层级化字号：h1 更醒目、h2 次一级；clamp 在大屏放大、小屏收敛 */
+  h1, .section h1, .section-title, .page-title, .post-title {
+    font-size: clamp(44px, 6.8vw, 86px) !important;
+    margin: .35em 0 .25em;
+  }
+  h2, .section h2 {
+    font-size: clamp(36px, 5.2vw, 64px) !important;
+    margin: .6em 0 .35em;
+    font-weight: 700 !important;
+  }
+
+  /* 页面语言是中文时，避免中文手写体显得过细，可保持 700 */
+  html[lang^="zh"] h1,
+  html[lang^="zh"] h2,
+  html[lang^="zh"] .section h2,
+  html[lang^="zh"] .section-title,
+  html[lang^="zh"] .page-title,
+  html[lang^="zh"] .post-title {
+    font-weight: 700 !important;
+  }
+</style>
+
+
+<style>
+  :root{
+    --hand-font: "Patrick Hand", "Ma Shan Zheng",
+                 ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+                 sans-serif !important;
+  }
+</style>
+
 
   {% if page.head_extra %}{{ page.head_extra }}{% endif %}
 </head>

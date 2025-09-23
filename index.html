@@ -1,12 +1,12 @@
 ---
 layout: default
-title: 你的论文标题
+title: Your paper title
 ---
 
 <!-- 1) Hero：轮播（读取 _data/hero.yml） -->
 <section class="section hero">
   <div class="container">
-    <h1>你的论文标题</h1>
+    <h1>Your paper title</h1>
     <p class="authors">作者A<sup>1</sup>，作者B<sup>2</sup>，作者C<sup>1</sup></p>
     <p class="affiliations"><sup>1</sup>单位一　<sup>2</sup>单位二</p>
 
@@ -31,13 +31,16 @@ title: 你的论文标题
       <button class="nav next" aria-label="Next">›</button>
       <div class="dots"></div>
     </div>
+    <p class="paper-intro" style="font-size: 1.1rem; color: #374151; margin-top: 1em; text-align: center;">
+  这是一句话介绍整篇论文的研究方向与意义。
+</p>
   </div>
 </section>
 
 <!-- 2) Abstract：MD → HTML -->
 <section id="abstract" class="section gray">
   <div class="container">
-    <h2 class="h2-center">Abstract</h2>
+    <h2 class="hand-title h2-center">Abstract</h2>
     <div class="lead">
       {% capture abs_raw %}{% include sections/abstract.md %}{% endcapture %}
       {{ abs_raw | markdownify }}
@@ -48,7 +51,7 @@ title: 你的论文标题
 <!-- 3) Background：MD → HTML -->
 <section id="background" class="section">
   <div class="container">
-    <h2>Background</h2>
+    <h2 class="hand-title">Background</h2>
     <p class="subtle">简述研究背景、相关工作或挑战点。</p>
     {% capture bg_raw %}{% include sections/background.md %}{% endcapture %}
     {{ bg_raw | markdownify }}
@@ -58,7 +61,7 @@ title: 你的论文标题
 <!-- 4) Approach：MD → HTML -->
 <section id="approach" class="section">
   <div class="container">
-    <h2>Approach</h2>
+    <h2 class="hand-title">Approach</h2>
     <p class="subtle">概述方法框架、关键模块与创新点。</p>
     {% capture app_raw %}{% include sections/approach.md %}{% endcapture %}
     {{ app_raw | markdownify }}
@@ -70,13 +73,12 @@ title: 你的论文标题
 
 
 <!-- 5) Results：读取 _data/results.yml 的图墙（带放大） -->
-<!-- 5) Results -->
 
 
 <!-- 5) Results：由 results.md 驱动 -->
 <section id="results" class="section">
   <div class="container">
-    <h2>Results</h2>
+    <h2 class="hand-title">Results</h2>
     <p class="subtle">展示定性/定量结果，支持 PDF 预览与说明文字。</p>
 
     {% capture res_raw %}{% include sections/results.md %}{% endcapture %}
@@ -97,7 +99,7 @@ title: 你的论文标题
 <!-- 6) Societal Impact：MD → HTML -->
 <section id="impact" class="section tight gray">
   <div class="container">
-    <h2>Societal Impact</h2>
+    <h2 class="hand-title">Societal Impact</h2>
     <p class="subtle">潜在社会影响、伦理考量、误用风险与缓解策略。</p>
     {% capture imp_raw %}{% include sections/impact.md %}{% endcapture %}
     {{ imp_raw | markdownify }}
