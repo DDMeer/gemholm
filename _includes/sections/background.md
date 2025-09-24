@@ -1,8 +1,8 @@
 <!-- background.md -->
 
 <div class="card pad tight">
-  <h3>相关背景图</h3>
-  <p class="text-2">这里写一句简短说明，可删。</p>
+  <!-- <h3>相关背景图</h3> -->
+  <p class="text-2">Write a brief explanation here, which can be deleted.</p>
 
   <!-- ========= 走马灯容器（纯 CSS，无缝循环） ========= -->
   <style>

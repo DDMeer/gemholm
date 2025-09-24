@@ -7,8 +7,8 @@ title: Your paper title
 <section class="section hero">
   <div class="container">
     <h1>Your paper title</h1>
-    <p class="authors">作者A<sup>1</sup>，作者B<sup>2</sup>，作者C<sup>1</sup></p>
-    <p class="affiliations"><sup>1</sup>单位一　<sup>2</sup>单位二</p>
+    <p class="authors">Author A<sup>1</sup>，Author B<sup>2</sup>，Author C<sup>1</sup></p>
+    <p class="affiliations"><sup>1</sup>affiliation A　<sup>2</sup>affiliation B</p>
 
     {% assign hero = site.data.hero %}
     <div
@@ -32,7 +32,7 @@ title: Your paper title
       <div class="dots"></div>
     </div>
     <p class="paper-intro" style="font-size: 1.1rem; color: #374151; margin-top: 1em; text-align: center;">
-  这是一句话介绍整篇论文的研究方向与意义。
+  This is a sentence that introduces the research direction and significance of the entire paper.
 </p>
   </div>
 </section>
@@ -52,7 +52,7 @@ title: Your paper title
 <section id="background" class="section">
   <div class="container">
     <h2 class="hand-title">Background</h2>
-    <p class="subtle">简述研究背景、相关工作或挑战点。</p>
+    <p class="subtle">Briefly describe the research background, related work or challenges.</p>
     {% capture bg_raw %}{% include sections/background.md %}{% endcapture %}
     {{ bg_raw | markdownify }}
   </div>
@@ -62,7 +62,7 @@ title: Your paper title
 <section id="approach" class="section">
   <div class="container">
     <h2 class="hand-title">Approach</h2>
-    <p class="subtle">概述方法框架、关键模块与创新点。</p>
+    <p class="subtle">Overview of the method framework, key modules and innovations.</p>
     {% capture app_raw %}{% include sections/approach.md %}{% endcapture %}
     {{ app_raw | markdownify }}
   </div>
@@ -79,7 +79,7 @@ title: Your paper title
 <section id="results" class="section">
   <div class="container">
     <h2 class="hand-title">Results</h2>
-    <p class="subtle">展示定性/定量结果，支持 PDF 预览与说明文字。</p>
+    <p class="subtle">Display qualitative/quantitative results, supporting PDF preview and explanatory text.</p>
 
     {% capture res_raw %}{% include sections/results.md %}{% endcapture %}
     {{ res_raw | markdownify }}
@@ -100,7 +100,7 @@ title: Your paper title
 <section id="impact" class="section tight gray">
   <div class="container">
     <h2 class="hand-title">Societal Impact</h2>
-    <p class="subtle">潜在社会影响、伦理考量、误用风险与缓解策略。</p>
+    <p class="subtle">Potential societal impacts, ethical considerations, risks of misuse, and mitigation strategies.</p>
     {% capture imp_raw %}{% include sections/impact.md %}{% endcapture %}
     {{ imp_raw | markdownify }}
   </div>

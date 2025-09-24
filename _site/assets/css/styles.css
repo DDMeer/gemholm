@@ -518,7 +518,7 @@ pre.code {
 /* ========== PDF viewer ========== */
 .pdf-wrap {
   width: 100%;
-  max-width: 1200px; /* 和你页面内容宽度保持一致 */
+  max-width: 1200px; /* 和页面内容宽度保持一致 */
   margin: 2rem auto;
   height: min(90vh, 1000px); /* 高度自适应，最多 1000px */
   border-radius: 12px;
@@ -550,21 +550,6 @@ pre.code {
     height: 70vh;
   }
 }
-/* --- Hand title: 立即见效版（只用系统字体） --- */
-/* 这些是常见的“手写体/涂鸦体”系统字体：macOS / Windows / Linux 都列了几个。 */
-.hand-title,
-.section h1.hand-title,
-.section h2.hand-title {
-  font-family: "Bradley Hand", "Marker Felt", "Chalkboard SE", "Segoe Print", "Comic Sans MS", "KaiTi", "Kaiti SC", cursive !important; /* 最后兜底，必须加 !important 提升优先级 */
-  text-align: center; /* 保证居中 */
-  letter-spacing: 0.3px; /* 略微松散一点，更像手写 */
-}
-
-/* 标题统一居中（配合你 index.html 里加的 h2-center 类） */
-.h2-center {
-  text-align: center !important;
-}
-
 /* 载入两款常用“手写风”中文/英文字体（有回退方案） */
 /* 只加载 Patrick Hand + 中文兜底 */
 :root {
@@ -579,7 +564,7 @@ pre.code {
 /* 用在 5 个 section 标题上的公共类 */
 /* 手写标题：更大、更黑、带阴影+细描边 */
 /* 手写标题：更大 + 大屏分段再放大 */
-.hand-title {
+.section h2.hand-title {
   font-family: var(--hand-font);
   font-weight: 900;
   color: #0d0d0d;
@@ -590,23 +575,23 @@ pre.code {
   -webkit-text-stroke: 0.45px rgba(0, 0, 0, 0.18);
   text-shadow: 0 2px 0 rgba(0, 0, 0, 0.06), 0 8px 22px rgba(0, 0, 0, 0.12);
   /* 移动端～中等屏幕：已经比之前大很多 */
-  font-size: clamp(48px, 8vw, 92px);
+  font-size: clamp(28px, 4.6vw, 56px);
 }
 
 /* 大屏逐级再放大 */
 @media (min-width: 1200px) {
   .hand-title {
-    font-size: 108px;
+    font-size: 64px;
   }
 }
 @media (min-width: 1536px) {
   .hand-title {
-    font-size: 124px;
+    font-size: 72px;
   }
 }
 @media (min-width: 1920px) {
   .hand-title {
-    font-size: 140px;
+    font-size: 84px;
   }
 }
 /* 你已有的居中类 h2-center 继续控制对齐；其余标题仍按容器对齐 */

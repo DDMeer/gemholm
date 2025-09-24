@@ -8,6 +8,113 @@
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
 
+  <!-- ✅ 新增：引入 _includes/head.html -->
+  <head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="generator" content="Jekyll v4.3.4">
+
+  <title>Your paper title · 你的论文标题</title>
+  <meta name="description" content="单页项目展示">
+  <meta name="theme-color" content="#ffffff">
+
+  
+    <link rel="canonical" href="http://localhost:4000/">
+    <meta property="og:url" content="http://localhost:4000/">
+  
+
+  <!-- Open Graph -->
+  <meta property="og:type" content="website">
+  <meta property="og:title" content="Your paper title">
+  <meta property="og:site_name" content="你的论文标题">
+  <meta property="og:description" content="单页项目展示">
+  
+
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Your paper title">
+  <meta name="twitter:description" content="单页项目展示">
+  
+
+  <!-- Icons -->
+  <link rel="icon" href="/assets/favicon.ico">
+  <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
+
+  <!-- 站点主样式（由 assets/css/styles.scss 编译而来） -->
+  <link rel="stylesheet" href="/assets/css/styles.css?v=1758680644">
+
+  <!-- 预连接加速字体域名 -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+
+
+<!-- 手写体字体（英：Patrick Hand；中：Ma Shan Zheng） -->
+<link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&family=Ma+Shan+Zheng&display=swap" rel="stylesheet">
+
+
+  <!-- 让标题使用手写体并居中：放在 <head> 最末，权重最高 -->
+<style id="handwriting-headings">
+  :root{
+    /* 把主手写体换成 Patrick Hand；中文用「Ma Shan Zheng」兜底 */
+    --hand-font: "Patrick Hand", "Ma Shan Zheng",
+                 ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+                 sans-serif;
+  }
+
+  /* 让各类标题都用手写体，且强制居中 */
+  h1, h2, h3, h4, h5, h6,
+  main h1, main h2,
+  .section h1, .section h2,
+  .section-title, .paper-title, .page-title, .post-title,
+  h1[id], h2[id] {
+    font-family: var(--hand-font) !important;
+    text-align: center !important;
+    font-weight: 700 !important;        /* 更黑一些 */
+    letter-spacing: .2px;
+    line-height: 1.15;
+    text-shadow:
+      0 1px 0 #fff,                     /* 细白描，浅浅抬亮 */
+      0 3px 8px rgba(0,0,0,.12);        /* 柔和阴影，增强对比 */
+  }
+
+  /* 层级化字号：h1 更醒目、h2 次一级；clamp 在大屏放大、小屏收敛 */
+  h1, .section h1, .section-title, .page-title, .post-title {
+    font-size: clamp(44px, 6.8vw, 86px) !important;
+    margin: .35em 0 .25em;
+  }
+/*  h2, .section h2 {
+    font-size: clamp(36px, 5.2vw, 64px) !important;
+    margin: .6em 0 .35em;
+    font-weight: 700 !important;
+  }*/
+
+  /* 页面语言是中文时，避免中文手写体显得过细，可保持 700 */
+  html[lang^="zh"] h1,
+  html[lang^="zh"] h2,
+  html[lang^="zh"] .section h2,
+  html[lang^="zh"] .section-title,
+  html[lang^="zh"] .page-title,
+  html[lang^="zh"] .post-title {
+    font-weight: 700 !important;
+  }
+</style>
+
+
+<style>
+  :root{
+    --hand-font: "Patrick Hand", "Ma Shan Zheng",
+                 ui-sans-serif, -apple-system, system-ui, "Segoe UI",
+                 Roboto, "Helvetica Neue", Arial, "PingFang SC",
+                 "Hiragino Sans GB", "Microsoft YaHei", "Noto Sans CJK SC",
+                 sans-serif !important;
+  }
+</style>
+
+
+  
+</head>
 
 
 </head>
@@ -24,16 +131,12 @@
         <a class="pill" href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">arXiv</a>
       </nav> -->
 
-
 <nav class="nav actions">
   <a class="pill demo" href="https://your-demo.example.com" target="_blank" rel="noopener">Demo</a>
   <a class="pill"      href="/assets/papers/paper.pdf" target="_blank" rel="noopener">PDF</a>
   <a class="pill"      href="https://github.com/ddmeer/gemholm" target="_blank" rel="noopener">Code</a>
   <a class="pill"      href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">arXiv</a>
 </nav>
-
-
-
 
     </div>
   </header>
@@ -43,8 +146,8 @@
 <section class="section hero">
   <div class="container">
     <h1>Your paper title</h1>
-    <p class="authors">作者A<sup>1</sup>，作者B<sup>2</sup>，作者C<sup>1</sup></p>
-    <p class="affiliations"><sup>1</sup>单位一　<sup>2</sup>单位二</p>
+    <p class="authors">Author A<sup>1</sup>，Author B<sup>2</sup>，Author C<sup>1</sup></p>
+    <p class="affiliations"><sup>1</sup>affiliation A　<sup>2</sup>affiliation B</p>
 
     
     <div
@@ -82,7 +185,7 @@
       <div class="dots"></div>
     </div>
     <p class="paper-intro" style="font-size: 1.1rem; color: #374151; margin-top: 1em; text-align: center;">
-  这是一句话介绍整篇论文的研究方向与意义。
+  This is a sentence that introduces the research direction and significance of the entire paper.
 </p>
   </div>
 </section>
@@ -120,13 +223,13 @@ large and limited training data.</p>
 <section id="background" class="section">
   <div class="container">
     <h2 class="hand-title">Background</h2>
-    <p class="subtle">简述研究背景、相关工作或挑战点。</p>
+    <p class="subtle">Briefly describe the research background, related work or challenges.</p>
     
     <!-- background.md -->
 
 <div class="card pad tight">
-  <h3>相关背景图</h3>
-  <p class="text-2">这里写一句简短说明，可删。</p>
+  <!-- <h3>相关背景图</h3> -->
+  <p class="text-2">Write a brief explanation here, which can be deleted.</p>
 
   <!-- ========= 走马灯容器（纯 CSS，无缝循环） ========= -->
   <style>
@@ -223,7 +326,7 @@ large and limited training data.</p>
 <section id="approach" class="section">
   <div class="container">
     <h2 class="hand-title">Approach</h2>
-    <p class="subtle">概述方法框架、关键模块与创新点。</p>
+    <p class="subtle">Overview of the method framework, key modules and innovations.</p>
     
     <!-- _includes/sections/approach.md（或 approach.md） -->
 
@@ -267,7 +370,7 @@ large and limited training data.</p>
 <section id="results" class="section">
   <div class="container">
     <h2 class="hand-title">Results</h2>
-    <p class="subtle">展示定性/定量结果，支持 PDF 预览与说明文字。</p>
+    <p class="subtle">Display qualitative/quantitative results, supporting PDF preview and explanatory text.</p>
 
     
     <h3 id="poster--paper">Poster / Paper</h3>
@@ -301,7 +404,7 @@ large and limited training data.</p>
 <section id="impact" class="section tight gray">
   <div class="container">
     <h2 class="hand-title">Societal Impact</h2>
-    <p class="subtle">潜在社会影响、伦理考量、误用风险与缓解策略。</p>
+    <p class="subtle">Potential societal impacts, ethical considerations, risks of misuse, and mitigation strategies.</p>
     
     <h3 id="societal-impact">Societal Impact</h3>
 <ul>
