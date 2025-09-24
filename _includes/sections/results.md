@@ -10,11 +10,13 @@ Experimental results across a variety of benchmarks indicate that the proposed f
 
 <div class="card pad">
   <!-- 本地 PDF：assets/papers/paper.pdf -->
-  <iframe
-    class="pdf-embed"
-    src="{{ '/assets/papers/paper.pdf' | relative_url }}#toolbar=1&navpanes=0&view=FitH"
-    loading="lazy"
-  ></iframe>
+<iframe
+  class="pdf-embed"
+  src="{{ pdf_url }}#toolbar=1&navpanes=0&view=FitH"
+  loading="lazy">
+</iframe>
+
+
 
   <!-- 兜底：如果浏览器禁用内联预览，显示下载/打开链接 -->
   <p style="margin-top:.75rem;text-align:center;">
