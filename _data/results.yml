@@ -1,7 +1,7 @@
 # _data/results.yml
 
 mode: pdf                  # pdf / cards 二选一
-pdf: /assets/papers/paper.pdf
+pdf: "https://arxiv.org/pdf/1706.03762.pdf"
 caption: Poster            # 可选：标题/说明
 
 # 如果以后还想用卡片模式，保留 items:
