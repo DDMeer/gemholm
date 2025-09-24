@@ -32,12 +32,20 @@
         <a class="pill" href="https://arxiv.org/abs/xxxx.xxxxx" target="_blank" rel="noopener">arXiv</a>
       </nav> -->
 
+
+
+{% assign _pdf = site.links.pdf | default: '/assets/papers/paper.pdf' %}
+
 <nav class="nav actions">
   <a class="pill demo" href="{{ site.links.demo | default: '#' }}" target="_blank" rel="noopener">Demo</a>
-  <a class="pill"      href="{{ site.links.pdf  | default: '/assets/papers/paper.pdf' | relative_url }}" target="_blank" rel="noopener">PDF</a>
-  <a class="pill"      href="{{ site.links.code | default: '#' }}" target="_blank" rel="noopener">Code</a>
-  <a class="pill"      href="{{ site.links.arxiv| default: '#' }}" target="_blank" rel="noopener">arXiv</a>
+  <a class="pill"
+     href="{% if _pdf contains '://' %}{{ _pdf }}{% else %}{{ _pdf | relative_url }}{% endif %}"
+     target="_blank" rel="noopener">PDF</a>
+  <a class="pill"      href="{{ site.links.code  | default: '#' }}" target="_blank" rel="noopener">Code</a>
+  <a class="pill"      href="{{ site.links.arxiv | default: '#' }}" target="_blank" rel="noopener">arXiv</a>
 </nav>
+
+
 
     </div>
   </header>
