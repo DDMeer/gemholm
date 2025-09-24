@@ -10,7 +10,7 @@ plugins: []
 
 links:
   demo: "https://your-demo.example.com"
-  pdf:  "/assets/papers/paper.pdf"
+  pdf:  "https://arxiv.org/pdf/1706.03762.pdf"
   code: "https://github.com/ddmeer/gemholm"
   arxiv: "https://arxiv.org/abs/xxxx.xxxxx"
 
