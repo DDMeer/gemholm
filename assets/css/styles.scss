@@ -464,6 +464,18 @@ pre.code {
 
 
 
+/* 01 */ /* 让 section 中的二级标题(带 hand-title)更小；只新增，不改原规则 */
+ .section h2.hand-title{
+   font-size: clamp(22px, 3.2vw, 36px); /* ✅ 明显更小；覆盖 .section h2 的字号 */
+   line-height: 1.12;
+ }
+ 
+ /* 如需“更小一丢丢”的个别标题，在 markdown 里加 .hand-title--sm 即可 */
+ .section h2.hand-title.hand-title--sm{
+   font-size: clamp(20px, 2.9vw, 32px); /* ✅ 可选更小档 */
+ }
+
+
 
 
 

@@ -1,7 +1,7 @@
 <!-- _includes/sections/approach.md（或 approach.md） -->
 
 
-### 方法简介
+<!-- ### 方法简介 -->
 整体流程如图，包含 A、B、C 三个模块……（这里写你的方法文字）
 
 <div class="card pad tight">
@@ -12,17 +12,17 @@
   <div class="fig-grid square tight s-220 compact">
     <figure class="fig">
       <img src="{{ '/assets/images/approach/app-01.jpg' | relative_url }}" alt="Input / 示例图 1">
-      <figcaption>说明文字</figcaption>
+      <figcaption>Description</figcaption>
     </figure>
 
     <figure class="fig">
       <img src="{{ '/assets/images/approach/app-02.jpg' | relative_url }}" alt="示例图 2">
-      <figcaption>说明文字</figcaption>
+      <figcaption>Description</figcaption>
     </figure>
 
     <figure class="fig">
       <img src="{{ '/assets/images/approach/app-03.jpg' | relative_url }}" alt="示例图 3">
-      <figcaption>说明文字</figcaption>
+      <figcaption>Description</figcaption>
     </figure>
   </div>
 </div>
