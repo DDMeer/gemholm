@@ -7,6 +7,17 @@ title: Your paper title
 <section class="section hero">
   <div class="container">
     <h1>Your paper title</h1>
+
+    <nav class="center-buttons">
+      <a class="pill demo" href="{{ site.links.demo | default: '#' }}" target="_blank" rel="noopener">Demo</a>
+      <a class="pill" href="{{ _pdf | relative_url }}" target="_blank" rel="noopener">PDF</a>
+      <a class="pill" href="{{ site.links.code  | default: '#' }}" target="_blank" rel="noopener">Code</a>
+      <a class="pill" href="{{ site.links.arxiv | default: '#' }}" target="_blank" rel="noopener">arXiv</a>
+    </nav>
+
+
+
+    
     <p class="authors">Author A<sup>1</sup>，Author B<sup>2</sup>，Author C<sup>1</sup></p>
     <p class="affiliations"><sup>1</sup>affiliation A　<sup>2</sup>affiliation B</p>
 
