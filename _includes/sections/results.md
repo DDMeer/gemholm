@@ -1,5 +1,9 @@
 <!-- ### Poster / Paper -->
 
+
+Experimental results across a variety of benchmarks indicate that the proposed framework outperforms existing baselines in terms of predictive performance and computational efficiency. The evaluation also highlights the framework’s robustness under noisy conditions and its ability to generalize across tasks.
+
+
 <div class="card pad">
   <!-- 本地 PDF：assets/papers/paper.pdf -->
   <iframe

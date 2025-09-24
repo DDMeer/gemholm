@@ -1,8 +1,11 @@
 <!-- _includes/sections/approach.md（或 approach.md） -->
 
 
+
 <!-- ### 方法简介 -->
 整体流程如图，包含 A、B、C 三个模块……（这里写你的方法文字）
+
+Our approach builds on recent progress in multi-scale modeling and leverages both symbolic reasoning and statistical inference. The framework is designed to be modular, enabling the seamless integration of heterogeneous data sources and allowing domain-specific customization without compromising generality.
 
 <div class="card pad tight">
   <!-- 这句是和 background 一样的简短说明，可删 -->

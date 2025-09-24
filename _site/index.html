@@ -4,6 +4,13 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width,initial-scale=1">
   <title>Your paper title</title>
+
+
+  <!-- ✅ 自定义 favicon：SVG 为首选，带 PNG 与苹果、Safari 兼容 -->
+<link rel="icon" href="/assets/icons/favicon-32x32.png" type="image/png">
+
+
+
   <meta name="description" content="Single-page project display">
   <link rel="stylesheet" href="/assets/css/styles.css">
   <link href="https://fonts.googleapis.com/css2?family=Patrick+Hand&display=swap" rel="stylesheet">
@@ -41,7 +48,7 @@
   <link rel="apple-touch-icon" href="/assets/apple-touch-icon.png">
 
   <!-- 站点主样式（由 assets/css/styles.scss 编译；带时间戳防缓存） -->
-  <link rel="stylesheet" href="/assets/css/styles.css?v=1758681605">
+  <link rel="stylesheet" href="/assets/css/styles.css?v=1758682724">
 
   <!-- 预连接加速字体域名 -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -187,20 +194,7 @@
 可用<strong>粗体</strong>、<em>斜体</em>、以及行内代码 <code class="language-plaintext highlighter-rouge">x = y</code>。<br />
 公式建议直接贴图（为保证跨端渲染一致性）。</p>
 
-<p>The dominant sequence transduction models are based on complex recurrent or
-convolutional neural networks that include an encoder and a decoder. The best
-performing models also connect the encoder and decoder through an attention
-mechanism. We propose a new simple network architecture, the Transformer,
-based solely on attention mechanisms, dispensing with recurrence and convolutions
-entirely. Experiments on two machine translation tasks show these models to
-be superior in quality while being more parallelizable and requiring significantly
-less time to train. Our model achieves 28.4 BLEU on the WMT 2014 Englishto-German translation task, improving over the existing best results, including
-ensembles, by over 2 BLEU. On the WMT 2014 English-to-French translation task,
-our model establishes a new single-model state-of-the-art BLEU score of 41.8 after
-training for 3.5 days on eight GPUs, a small fraction of the training costs of the
-best models from the literature. We show that the Transformer generalizes well to
-other tasks by applying it successfully to English constituency parsing both with
-large and limited training data.</p>
+<p>This study presents a comprehensive framework to investigate complex systems by integrating data-driven analysis with theoretical modeling. The proposed methodology is evaluated across multiple domains and demonstrates consistent improvements in accuracy, robustness, and interpretability.</p>
 
     </div>
   </div>
@@ -213,6 +207,8 @@ large and limited training data.</p>
     <p class="subtle">Briefly describe the research background, related work or challenges.</p>
     
     <!-- background.md -->
+
+<p>Over the past decade, significant advances have been made in understanding the interplay between computational efficiency and representational power. Traditional methods provided foundational insights, but they often suffered from scalability issues and limited adaptability to rapidly evolving environments.</p>
 
 <div class="card pad tight">
   <!-- <h3>相关背景图</h3> -->
@@ -320,6 +316,8 @@ large and limited training data.</p>
 <!-- ### 方法简介 -->
 <p>整体流程如图，包含 A、B、C 三个模块……（这里写你的方法文字）</p>
 
+<p>Our approach builds on recent progress in multi-scale modeling and leverages both symbolic reasoning and statistical inference. The framework is designed to be modular, enabling the seamless integration of heterogeneous data sources and allowing domain-specific customization without compromising generality.</p>
+
 <div class="card pad tight">
   <!-- 这句是和 background 一样的简短说明，可删 -->
   <p class="text-2">这里写一句简短说明，可删。</p>
@@ -362,6 +360,8 @@ large and limited training data.</p>
     
     <!-- ### Poster / Paper -->
 
+<p>Experimental results across a variety of benchmarks indicate that the proposed framework outperforms existing baselines in terms of predictive performance and computational efficiency. The evaluation also highlights the framework’s robustness under noisy conditions and its ability to generalize across tasks.</p>
+
 <div class="card pad">
   <!-- 本地 PDF：assets/papers/paper.pdf -->
   <iframe class="pdf-embed" src="/assets/papers/paper.pdf#toolbar=1&amp;navpanes=0&amp;view=FitH" loading="lazy"></iframe>
@@ -388,17 +388,19 @@ large and limited training data.</p>
 
 
 <!-- 6) Societal Impact：MD → HTML -->
-<section id="impact" class="section tight gray">
+<section id="impact" class="section tight">
   <div class="container">
     <h2 class="hand-title">Societal Impact</h2>
     <p class="subtle">Potential societal impacts, ethical considerations, risks of misuse, and mitigation strategies.</p>
     
-    <h3 id="societal-impact">Societal Impact</h3>
+    <!-- ### Societal Impact -->
 <ul>
   <li>潜在积极影响：……</li>
   <li>风险与误用：……</li>
   <li>缓解措施与负责任发布策略：……</li>
 </ul>
+
+<p>Beyond technical contributions, this work has potential societal implications. The methodology can support decision-making in critical sectors such as healthcare, energy, and transportation, while also raising important ethical considerations regarding fairness, transparency, and accountability in automated systems.</p>
 
   </div>
 </section>

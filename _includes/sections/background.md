@@ -1,5 +1,10 @@
 <!-- background.md -->
 
+
+
+Over the past decade, significant advances have been made in understanding the interplay between computational efficiency and representational power. Traditional methods provided foundational insights, but they often suffered from scalability issues and limited adaptability to rapidly evolving environments.
+
+
 <div class="card pad tight">
   <!-- <h3>相关背景图</h3> -->
   <p class="text-2">Write a brief explanation here, which can be deleted.</p>
